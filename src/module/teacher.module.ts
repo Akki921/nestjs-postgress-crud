@@ -14,8 +14,21 @@ import { StudentService } from 'src/service/student.service';
 import { TeacherService } from 'src/service/teacher.service';
 import { UtilityService } from 'src/utilities/utility';
 @Module({
-  imports: [TypeOrmModule.forFeature([Principle, Teacher,Student,StudentTeacher])],
-  providers: [PrincipleService, TeacherService,StudentService,StudentTeacherService,UtilityService],
-  controllers: [PrincipleController, TeacherController,StudentController,StudentTeacherController],
+  imports: [
+    TypeOrmModule.forFeature([Principle, Teacher, Student, StudentTeacher]),
+  ],
+  providers: [
+    PrincipleService,
+    TeacherService,
+    StudentService,
+    StudentTeacherService,
+    UtilityService,
+  ],
+  controllers: [
+    PrincipleController,
+    TeacherController,
+    StudentController,
+    StudentTeacherController,
+  ],
 })
 export class ClassModule {}

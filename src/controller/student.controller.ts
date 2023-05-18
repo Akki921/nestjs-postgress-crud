@@ -48,9 +48,7 @@ export class StudentController {
     } catch (err) {
       return response
         .status(400)
-        .json(
-          this.utilityService.getErrorResponse(err.status, err.message),
-        );
+        .json(this.utilityService.getErrorResponse(err.status, err.message));
     }
   }
 
@@ -90,9 +88,7 @@ export class StudentController {
     } catch (err) {
       return response
         .status(400)
-        .json(
-          this.utilityService.getErrorResponse(err.status, err.message),
-        );
+        .json(this.utilityService.getErrorResponse(err.status, err.message));
     }
   }
 
@@ -110,9 +106,7 @@ export class StudentController {
     } catch (err) {
       return response
         .status(400)
-        .json(
-          this.utilityService.getErrorResponse(err.status, err.message),
-        );
+        .json(this.utilityService.getErrorResponse(err.status, err.message));
     }
   }
 

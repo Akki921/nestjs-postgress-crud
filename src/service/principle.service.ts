@@ -9,7 +9,7 @@ export class PrincipleService {
   constructor(
     @InjectRepository(Principle)
     private principleRepository: Repository<Principle>,
-    private connection: Connection
+    private connection: Connection,
   ) {}
 
   async createPrinciple(createPrincipleSchema: Principle): Promise<Principle> {
@@ -30,7 +30,7 @@ export class PrincipleService {
 
   async getPrinciple(PrincipleId: number): Promise<Principle> {
     Logger.warn('PrincipleId', PrincipleId);
-    const queryRunner =  await this.connection.createQueryRunner();
+    const queryRunner = await this.connection.createQueryRunner();
     await queryRunner.startTransaction();
 
     try {

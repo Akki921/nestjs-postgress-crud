@@ -1,0 +1,23 @@
+{
+    "Teacher": {
+      " GET": "Teacher not fetched!",
+      " ADD": "Teacher not created!",
+      " UPDATE": "Teacher not updated!",
+      " DELETE": "Teacher not deleted!"
+    },
+    "StatusCode": {
+      " GET": "400",
+      " ADD": "400",
+      " UPDATE": "400",
+      " DELETE": "400"
+    },
+    "ENGLISH": "English",
+    "ARRAY": ["ONE", "TWO", "THREE"],
+    "day_interval": {
+      "one": "Every day",
+      "other": "Every {count} days",
+      "zero": "Never"
+    },
+    "nested": "We go shopping: $t(test.day_interval, {{\"count\": {count} }})"
+  }
+  

@@ -19,6 +19,9 @@ import {
 } from '@nestjs/swagger';
 import { Teacher } from 'src/models/teacher.model';
 import { TeacherService } from 'src/service/teacher.service';
+import { I18n, I18nContext, I18nLang } from 'nestjs-i18n';
+import { I18nTranslations } from 'src/generated/i18n.generated';
+import { I18N_LANG } from 'src/config/config';
 @ApiTags('teacher')
 @Controller('teacher')
 export class TeacherController {
@@ -28,21 +31,32 @@ export class TeacherController {
   @ApiCreatedResponse({ description: 'Created Succesfully' })
   @ApiUnprocessableEntityResponse({ description: 'Bad Request' })
   @ApiForbiddenResponse({ description: 'Unauthorized Request' })
-  async createTeacher(@Res() response, @Body() creatTeacherSchema: Teacher) {
+  async createTeacher(@Res() response, @Body() creatTeacherSchema: Teacher, @I18n() i18n: I18nContext<I18nTranslations>) {
     try {
       Logger.log('creatTeacherDto', creatTeacherSchema);
 
       const newTeacher = await this.teacherService.createTeacher(
         creatTeacherSchema,
       );
-      return response.status(HttpStatus.CREATED).json({
-        message: 'Teacher has been created successfully',
+      console.log('newTeacher',newTeacher);
+      
+      return response.status(i18n.t('success.StatusCode. ADD',{
+        lang:I18N_LANG,
+      })).json({
+        message: i18n.t('success.Teacher. ADD', {
+          args: { name: newTeacher.name },
+          lang:I18N_LANG,
+        }),
         newTeacher,
       });
     } catch (err) {
       return response.status(HttpStatus.BAD_REQUEST).json({
-        statusCode: 400,
-        message: 'Error: Teacher not created!',
+        statusCode: i18n.t('error.StatusCode. ADD',{
+          lang:I18N_LANG,
+        }),
+        message: i18n.t('error.Teacher. ADD', {
+          lang:I18N_LANG,
+        }),
         error: 'Bad Request',
       });
     }

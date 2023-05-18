@@ -1,0 +1,274 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/principle": {
+      "post": {
+        "operationId": "PrincipleController_createPrinciple",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Principle" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } }
+      },
+      "get": {
+        "operationId": "PrincipleController_getPrinciples",
+        "parameters": [],
+        "responses": { "200": { "description": "" } }
+      }
+    },
+    "/principle/{id}": {
+      "get": {
+        "operationId": "PrincipleController_getPrinciple",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": { "200": { "description": "" } }
+      }
+    },
+    "/teacher": {
+      "post": {
+        "operationId": "TeacherController_createTeacher",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Teacher" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Created Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["teacher"]
+      },
+      "get": {
+        "operationId": "TeacherController_getTeachers",
+        "parameters": [],
+        "responses": {
+          "200": { "description": "Data Retrive Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["teacher"]
+      }
+    },
+    "/teacher/{id}": {
+      "get": {
+        "operationId": "TeacherController_getTeacher",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Data Retrive Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["teacher"]
+      }
+    },
+    "/student": {
+      "post": {
+        "operationId": "StudentController_createStudent",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Student" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Created Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["student"]
+      },
+      "get": {
+        "operationId": "StudentController_getStudents",
+        "parameters": [],
+        "responses": {
+          "200": { "description": "Data Retrive Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["student"]
+      }
+    },
+    "/student/{id}": {
+      "get": {
+        "operationId": "StudentController_getStudent",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Data Retrive Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["student"]
+      }
+    },
+    "/student-teacher": {
+      "post": {
+        "operationId": "StudentTeacherController_createStudentTeacher",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/StudentTeacher" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Created Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["student-teacher"]
+      },
+      "get": {
+        "operationId": "StudentTeacherController_getStudentTeachers",
+        "parameters": [],
+        "responses": {
+          "200": { "description": "Data Retrive Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["student-teacher"]
+      }
+    },
+    "/student-teacher/{id}": {
+      "get": {
+        "operationId": "StudentTeacherController_getStudentTeacher",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Data Retrive Succesfully" },
+          "403": { "description": "Unauthorized Request" },
+          "422": { "description": "Bad Request" }
+        },
+        "tags": ["student-teacher"]
+      }
+    }
+  },
+  "info": {
+    "title": "Demo API",
+    "description": "A Demo API with CRUD functionality",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [{ "name": " Class API`s ", "description": "" }],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Principle": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name is a required property"
+          },
+          "designation": {
+            "type": "string",
+            "description": "designation This is a required property"
+          },
+          "age": {
+            "type": "number",
+            "description": "age is a required property"
+          }
+        },
+        "required": ["name", "designation", "age"]
+      },
+      "Teacher": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name is a required property"
+          },
+          "designation": {
+            "type": "string",
+            "description": "designation is a required property"
+          },
+          "age": {
+            "type": "string",
+            "description": "age is a required property"
+          },
+          "principleId": {
+            "type": "number",
+            "description": "principleId is a required property"
+          }
+        },
+        "required": ["name", "designation", "age", "principleId"]
+      },
+      "Student": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name is a required property"
+          },
+          "rollno": {
+            "type": "number",
+            "description": "rollno is a required property"
+          },
+          "age": {
+            "type": "number",
+            "description": "age is a required property"
+          },
+          "marks": {
+            "type": "number",
+            "description": "marks is a required property"
+          }
+        },
+        "required": ["name", "rollno", "age", "marks"]
+      },
+      "StudentTeacher": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "number",
+            "description": "studentId is a required property"
+          },
+          "teacherId": {
+            "type": "number",
+            "description": "teacherId is a required property"
+          }
+        },
+        "required": ["studentId", "teacherId"]
+      }
+    }
+  }
+}

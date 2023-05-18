@@ -13,7 +13,6 @@ export class StudentService {
   ) {}
   private readonly logger = new Logger();
 
-
   async createStudent(createStudentSchema: Student): Promise<Student> {
     this.logger.warn('createTeacherDto from servoice', createStudentSchema);
     const newStudent = await this.studentRepository.create(createStudentSchema);
